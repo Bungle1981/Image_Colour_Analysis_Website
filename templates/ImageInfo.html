@@ -1,0 +1,23 @@
+{% extends "LayoutFile.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block sectionheader %}Your image colour results!{% endblock %}
+
+{% block sectioncontent %}
+<img style="max-width: 500px;" src="{{ image }}">
+
+<h2 style="padding-top:30px;">The 10 most dominant colours used in this picture are:</h2>
+<table>
+    <thead>
+    <td style="font-weight:bold">Hex Code</td>
+    <td style="font-weight:bold">Colour Example</td>
+    </thead>
+    {% for x in range(0,10): %}
+        <tr>
+            <td>{{ palette[x] }}</td>
+            <td bgcolor="{{ palette[x] }}"></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
